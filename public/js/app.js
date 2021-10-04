@@ -1958,8 +1958,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['author_name', 'title', 'question', 'id'],
+  props: ['author_name', 'title', 'question', 'id', 'date', 'total_votes'],
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -38333,18 +38334,29 @@ var render = function() {
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.question))]),
       _vm._v(" "),
+      _vm.total_votes >= 1
+        ? _c(
+            "a",
+            {
+              staticClass: "btn btn-outline-primary",
+              attrs: { href: "/public/show-results/" + _vm.id }
+            },
+            [_vm._v("Ver resultados")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "a",
         {
           staticClass: "btn btn-primary",
           attrs: { href: "/public/vote/" + _vm.id }
         },
-        [_vm._v("Votar")]
+        [_vm._v("Votar nesta enquete")]
       )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card-footer bg-dark text-muted" }, [
-      _vm._v("\n            2 days ago\n        ")
+      _vm._v("\n            " + _vm._s(_vm.date) + "\n        ")
     ])
   ])
 }

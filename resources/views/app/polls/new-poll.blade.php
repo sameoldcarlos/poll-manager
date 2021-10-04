@@ -6,17 +6,17 @@
         @csrf
         <div class="form-group">
           <label for="inputPollTitle">Título</label>
-          <input type="text" class="form-control" id="inputPollTitle" name="title" placeholder="Digite um título para a sua enquete">
+          <input type="text" class="form-control" id="inputPollTitle" name="title" placeholder="Digite um título para a sua enquete" required>
         </div>
         <div class="form-group">
           <label for="inputPollQuestion">Pergunta</label>
-          <input type="text" class="form-control" id="inputPollQuestion" name="question" placeholder="Pergunte algo">
+          <input type="text" class="form-control" id="inputPollQuestion" name="question" placeholder="Pergunte algo" required>
         </div>
         <div class="options-container">
             <div class="form-group" id="pollOptions">
                 <label>Opções</label>
-                <input type="text" class="form-control" placeholder="Opção 1" name="option_field[]">
-                <input type="text" class="form-control" placeholder="Opção 2" name="option_field[]">
+                <input type="text" class="form-control" placeholder="Opção 1" name="option_field[]" required>
+                <input type="text" class="form-control" placeholder="Opção 2" name="option_field[]" required>
             </div>            
             <button type="button" class="add-option btn btn-outline-primary" id="addOption">Adicionar Opção</button>
             <div class="num-options-wrn alert alert-danger" id="numOptionsWarning" role="alert"></div>

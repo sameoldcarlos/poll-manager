@@ -9,7 +9,7 @@ class Poll extends Model
 {
     protected $table = 'polls';
 
-    protected $fillable = ['title', 'question', 'user_id'];
+    protected $fillable = ['title', 'question', 'total_votes', 'is_active', 'user_id'];
 
     public function options() {
         return $this->hasMany(Option::class);

@@ -7,17 +7,18 @@
             <div class="card-body bg-light text-dark">
                 <h5 class="card-title">{{ title }}</h5>
                 <p class="card-text">{{ question }}</p>
-                <a :href="'/public/vote/' + id" class="btn btn-primary">Votar</a>
+                <a v-if="total_votes>=1" :href="'/public/show-results/' + id" class="btn btn-outline-primary">Ver resultados</a>
+                <a :href="'/public/vote/' + id" class="btn btn-primary">Votar nesta enquete</a>
             </div>
             <div class="card-footer bg-dark text-muted">
-                2 days ago
+                {{ date }}
             </div>
         </div>
 </template>
 
 <script>
     export default {
-        props: ['author_name', 'title', 'question', 'id'],
+        props: ['author_name', 'title', 'question', 'id', 'date', 'total_votes'],
         mounted() {
             console.log('Component mounted.')
         },

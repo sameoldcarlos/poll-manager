@@ -7,16 +7,13 @@ use App\Models\Poll;
 use App\Models\Option;
 use App\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class PollController extends Controller
 {
-    private $objUser;
     private $objPoll;
 
     public function __construct()
     {
-        $this->objUser = new User();
         $this->objPoll = new Poll();
     }
 
@@ -33,10 +30,11 @@ class PollController extends Controller
 
     public function store(Request $request)
     {
-
         $poll = new Poll([
             'title' => $request->title,
             'question' => $request->question,
+            'total_votes' => 0,
+            'is_active' => true,
             'user_id' => Auth::id()
         ]);
 
@@ -50,11 +48,8 @@ class PollController extends Controller
             }
         }
 
-        
-    }
+        return redirect()->route('index-poll');
 
-    public function edit($id)
-    {
         
     }
 
@@ -67,5 +62,30 @@ class PollController extends Controller
         $option = Option::findOrFail($request->poll_option);
         $option->num_votes += 1;
         $option->save();
+
+        $poll = Poll::findOrFail($id);
+        $poll->total_votes += 1;
+        $poll->save();
+        
+        $vote_again = true;
+        return redirect()->route('show-poll-results', ['id' => $id, 'vote_again' => $vote_again]);
+    }
+
+    public function showResults($id) {
+        $poll = Poll::findOrFail($id);
+        return view('show-poll-results', ['poll' => $poll]);
+    }
+
+    public function delete($id){
+        $poll = Poll::findOrFail($id);
+
+        if(Auth::id()==$poll->user_id) {        
+            $poll->delete();
+            return redirect()->back()->with('success', 'A enquete foi removida!');
+
+         }
+         else {
+            return redirect()->back()->with('error', 'Não foi possível remover a enquete');
+        }
     }
 }

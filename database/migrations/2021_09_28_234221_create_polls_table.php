@@ -17,6 +17,8 @@ class CreatePollsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('question');
+            $table->integer('total_votes');
+            $table->boolean('is_active');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

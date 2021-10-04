@@ -11,7 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/pollFormHandler.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -43,11 +42,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="btn btn-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="btn btn-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="btn btn-outline-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-outline-primary" href="{{ route('register') }}">{{ __('Registrar') }}</a>
                                 </li>
                             @endif
                         @else
@@ -60,8 +59,12 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Sair') }}
                                     </a>
+
+                                    <a class="dropdown-item" href="{{ route('index-poll') }}">
+                                        {{ __('Suas enquetes') }}
+                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -77,6 +80,8 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </div>    
+    <script src="{{ asset('js/pollFormHandler.js')}}" defer></script>
+    <script src="{{ asset('js/pollDeletionHandler.js')}}" defer></script>
 </body>
 </html>

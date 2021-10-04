@@ -1,4 +1,4 @@
-window.onload = () => {
+
     let $btnAdd = document.querySelector('#addOption');
     let $optionsContainer = document.querySelector('#pollOptions');
     let numOptions = 2;
@@ -14,6 +14,7 @@ window.onload = () => {
         else {
             $num_options_wrn.classList.remove("num-options-wrn--visible");
             let $new_option = document.createElement("input");
+            $new_option.setAttribute("required", "true");
             numOptions++;
 
             $new_option.setAttribute("type", "text");
@@ -28,4 +29,3 @@ window.onload = () => {
             }
         
     });
-}

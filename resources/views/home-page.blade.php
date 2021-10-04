@@ -11,6 +11,8 @@
                 :title="'{{ ($poll->title) }}'"
                 :question="'{{ ($poll->question) }}'"
                 :id="'{{ $poll->id }}'"
+                :date="'{{ $poll->created_at->format('d/m/y') }}'"
+                :total_votes="'{{ $poll->total_votes }}'"
                 ></poll-card>
 
             @endforeach
