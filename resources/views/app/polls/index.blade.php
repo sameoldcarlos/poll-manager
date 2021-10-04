@@ -26,7 +26,10 @@
             <td>{{ $poll->title }}</td>
             <td>{{ $poll->question }}</td>
             <td>{{ $poll->total_votes }}</td>
-            <td><button id="button{{ $poll->id }}" class="delete-poll btn btn-link" title="Deletar Enquete" style="color:rgb(180, 10, 10);" data-toggle="modal" data-target="#modalExemplo"><i class="bi-trash-fill"></i></button></td>
+            <td>
+              <button id="button{{ $poll->id }}" class="delete-poll btn btn-link" title="Deletar Enquete" style="color:rgb(180, 10, 10);" data-toggle="modal" data-target="#modalExemplo"><i class="bi-trash-fill"></i></button>
+              <a href="/public/show-results/{{ $poll->id }}" class="see-results btn btn-link" title="Ver Resultados" style="color:rgb(49, 49, 49);"><i class="bi-eye-fill"></i></a>
+            </td>
 
           </tr>
         @endforeach
