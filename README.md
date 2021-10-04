@@ -15,3 +15,13 @@ Um usuário foi criado para que seja possível o teste da aplicação. Suas cred
 - Senha => 98765432
 
 Uma vez logado, o usuário terá acesso a todas as enquetes que criou e poderá removê-las caso queira. Também poderá criar novas enquetes.
+
+## Tecnologias Utilizadas
+Para a criação do projeto, foi utilizado o framework PHP Laravel, bem como as tecnologias disponíveis no ambiente do mesmo:
+- Blade template
+- Vue.js
+- Bootstrap
+
+O deploy do sistema foi feito no ambiente do Heroku, disponível através deste [link](https://poll-manager-test.herokuapp.com/).
+
+O banco de dados foi criado utilizando MySQL, através do phpMyAdmin, porém posteriormente optei pelo PostgreSQL, uma vez que é o gerenciador disponibilizado pelo Heroku.
