@@ -1,5 +1,5 @@
 # Poll Manager - Sistema de criação e gerenciamento de enquetes
-Esta aplicação foi criada como parte do teste para a vaga de Desenvolvedor da PONTEON - Soluções Digitais Integradas.
+
 
 ## Funcionalidades
 Na versão atual, as seguintes funções estão disponíveis:
